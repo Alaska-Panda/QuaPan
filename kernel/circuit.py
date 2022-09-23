@@ -4,7 +4,10 @@ import math
 
 
 norm_H = 1./math.sqrt(2)
-H_MAT = [[norm_H,norm_H],[norm_H,-norm_H]]
+H_GATE = [[norm_H,norm_H],[norm_H,-norm_H]]
+X_GATE = [[0,1.0],[1.0,0]]
+Y_GATE = [[0,-1.0j],[1.0j,0]]
+Z_GATE = [[1.0,0],[0,-1.0]]
 
 
 class QuCircuit:
@@ -23,7 +26,17 @@ class QuCircuit:
 		self.S = self.S.T
 
 	def h(self,i):
-		self.S[i] = np.dot(H_MAT,self.S[i])
+		self.S[i] = np.dot(H_GATE,self.S[i])
+	
+	def x(self,i):
+		self.S[i] = np.dot(X_GATE,self.S[i])
+	
+	def y(self,i):
+		self.S[i] = np.dot(Y_GATE,self.S[i])
+	
+	def z(self,i):
+		self.S[i] = np.dot(Z_GATE,self.S[i])
+	
 	
 	def show_state(self):
 		print(self.S)
