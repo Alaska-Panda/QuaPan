@@ -37,6 +37,14 @@ class QuCircuit:
 	def z(self,i):
 		self.S[i] = np.dot(Z_GATE,self.S[i])
 	
+	def cz(self,vec,n):
+		L = len(vec)
+		norm = complex(1.0)
+		for i in range(L):
+			norm = norm * S[vec[i]][1] 
+		if(norm == 1.0):
+			self.S[i] = np.dot(Z_GATE,self.S[i])
+			
 	
 	def show_state(self):
 		print(self.S)
