@@ -1,7 +1,8 @@
-
+import sys
+sys.path.append('../../')
 
 import numpy as np
-from circuit import QuCircuit
+from kernel.circuit import QuCircuit
 
 
 def main():
