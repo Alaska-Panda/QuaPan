@@ -39,9 +39,8 @@ def sub_tensor(A):
 
 def tensor(N,A):
 	L = len(A)
-	print(L)
 	B = np.zeros([N,N],dtype=complex)
-	for i in range(1):
+	for i in range(L):
 		if i == 0:
 			B = sub_tensor(A[i])
 		else:

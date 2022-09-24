@@ -67,7 +67,7 @@ class QuCircuit:
 		
 		L = len(self.MatrixOP)
 		K = len(self.MatrixOP[0])
-		print(L,"x",K)
+		print("matrix size : ",L,"x",K)
 		for k in range(K):
 			A = []
 			for i in range(L):

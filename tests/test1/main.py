@@ -2,27 +2,25 @@ import sys
 sys.path.append('../../')
 
 import numpy as np
-from kernel.circuit import QuCircuit
+from kernel.one_qubit_emu import OneQubitEmu
 
 
 def main():
-	NQ_Data	= 2
-	NQ_Index	= 0 
-	QC = QuCircuit(NQ_Data,NQ_Index)
+	QC = OneQubitEmu()
 
 	print("----")
 	QC.show_state()
 	print("----")
-	QC.h(0)
+	QC.h()
 	QC.show_state()
 	print("----")
-	QC.h(1)
+	QC.h()
 	QC.show_state()
 	print("----")
-	QC.h(0)
+	QC.h()
 	QC.show_state()
 	print("----")
-	QC.h(1)
+	QC.h()
 	QC.show_state()
 
 if __name__ == '__main__':

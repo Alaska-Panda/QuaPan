@@ -2,13 +2,11 @@ import sys
 sys.path.append('../../')
 
 import numpy as np
-from kernel.circuit import QuCircuit
+from kernel.one_qubit_emu import OneQubitEmu
 
 
 def main(args0):
-	NQ_Data	= 2
-	NQ_Index	= 0 
-	QC = QuCircuit(NQ_Data,NQ_Index)
+	QC = OneQubitEmu()
 	if args0 == 0:
 		FLAG_GATE  = "H"
 	elif args0 == 1:
@@ -23,16 +21,10 @@ def main(args0):
 		print("--init state vector--")
 		QC.show_state()
 		print("--Operation to 1st Quit--")
-		QC.h(0)
+		QC.h()
 		QC.show_state()
 		print("--Operation to 2nd Quit--")
-		QC.h(1)
-		QC.show_state()
-		print("--Operation to 1st Quit--")
-		QC.h(0)
-		QC.show_state()
-		print("--Operation to 2nd Quit--")
-		QC.h(1)
+		QC.h()
 		QC.show_state()
 
 	elif FLAG_GATE == "X":
@@ -40,16 +32,10 @@ def main(args0):
 		print("--init state vector--")
 		QC.show_state()
 		print("--Operation to 1st Quit--")
-		QC.x(0)
+		QC.x()
 		QC.show_state()
 		print("--Operation to 2nd Quit--")
-		QC.x(1)
-		QC.show_state()
-		print("--Operation to 1st Quit--")
-		QC.x(0)
-		QC.show_state()
-		print("--Operation to 2nd Quit--")
-		QC.x(1)
+		QC.x()
 		QC.show_state()
 
 	elif FLAG_GATE == "Y":
@@ -57,16 +43,10 @@ def main(args0):
 		print("--init state vector--")
 		QC.show_state()
 		print("--Operation to 1st Quit--")
-		QC.y(0)
+		QC.y()
 		QC.show_state()
 		print("--Operation to 2nd Quit--")
-		QC.y(1)
-		QC.show_state()
-		print("--Operation to 1st Quit--")
-		QC.y(0)
-		QC.show_state()
-		print("--Operation to 2nd Quit--")
-		QC.y(1)
+		QC.y()
 		QC.show_state()
 
 	elif FLAG_GATE == "Z":
@@ -74,16 +54,10 @@ def main(args0):
 		print("--init state vector--")
 		QC.show_state()
 		print("--Operation to 1st Quit--")
-		QC.z(0)
+		QC.z()
 		QC.show_state()
 		print("--Operation to 2nd Quit--")
-		QC.z(1)
-		QC.show_state()
-		print("--Operation to 1st Quit--")
-		QC.z(0)
-		QC.show_state()
-		print("--Operation to 2nd Quit--")
-		QC.z(1)
+		QC.z()
 		QC.show_state()
 	else:
 		print("--initial state vector--")
@@ -99,9 +73,9 @@ if __name__ == '__main__':
 			print("Set the first Argument as digit")
 	else:
 		print("Set 1 Argument")
-		print("0 -> H Gate operation")
-		print("1 -> X Gate operation")
-		print("2 -> Y Gate operation")
-		print("3 -> Z Gate operation")
+		print("0 -> twice H Gate operation")
+		print("1 -> twice X Gate operation")
+		print("2 -> twice Y Gate operation")
+		print("3 -> twice Z Gate operation")
 	
 
