@@ -2,12 +2,12 @@ import sys
 sys.path.append('../../')
 
 import numpy as np
-from kernel.base import QuCircuit
+from kernel.qsim import QuCircuit
 
 
 def main(args0):
 	NQ_Data	    = 4
-	NQ_Index	= 2 
+	NQ_Index	= 0 
 	QC = QuCircuit(NQ_Data,NQ_Index)
 	if args0 == 0:
 		FLAG_GATE  = "H"
@@ -26,25 +26,30 @@ def main(args0):
 		QC.h(range(1,2+1))
 		QC.show_OP()
 		print("--Operation to 2nd Quit--")
-		QC.x(range(3,5))
+		QC.x(range(3,3))
 		QC.show_OP()
+		QC.add()
+		print("--Operation to 2nd Quit--")
+		QC.h(range(0,2+1))
+		QC.show_OP()
+		QC.add()
+		print("--ALL--")
+		QC.show_ALL()
+		QC.tdot()
+		QC.show_MAT()
 
 	elif FLAG_GATE == "X":
 		print("--X Gate Operation--")
 		print("--init state vector--")
 		QC.show_state()
 		print("--Operation to 1st Quit--")
-		QC.x(0)
-		QC.show_state()
-		print("--Operation to 2nd Quit--")
-		QC.x(1)
-		QC.show_state()
-		print("--Operation to 1st Quit--")
-		QC.x(0)
-		QC.show_state()
-		print("--Operation to 2nd Quit--")
-		QC.x(1)
-		QC.show_state()
+		QC.show_OP()
+		QC.x(4-1)
+		QC.add()
+		print("--ALL--")
+		QC.show_ALL()
+		QC.tdot()
+		QC.show_MAT()
 
 	elif FLAG_GATE == "Y":
 		print("--Y Gate Operation--")
