@@ -2,7 +2,7 @@ import sys
 sys.path.append('../../')
 
 import numpy as np
-from kernel.qsim import QuCircuit
+from core.circuit import QuCircuit
 
 
 def main(args0):

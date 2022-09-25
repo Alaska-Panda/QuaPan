@@ -2,7 +2,7 @@ import sys
 sys.path.append('../../')
 
 import numpy as np
-from kernel.one_qubit_emu import OneQubitEmu
+from core.one_qubit_emu import OneQubitEmu
 
 
 def main(args0):
