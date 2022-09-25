@@ -26,7 +26,7 @@ class QuCircuit:
 		self.CTRL_BIT = 0
 		#self.OP  = ["|" for i in range(self.N)]
 		self.init_OP()
-		self.MatrixOP  = []
+		self.BoxOP  = []
 
 	def init_OP(self):
 		self.OP  = ["-" for i in range(self.N)]
@@ -86,12 +86,12 @@ class QuCircuit:
 	
 	
 	def add(self):
-		self.MatrixOP.append(self.OP)
+		self.BoxOP.append(self.OP)
 		self.CTRL.append(self.CTRL_BIT)
 		self.init_OP()
 	
 	def tdot(self):
-		self.MAT = tensor(self.NC,self.MatrixOP,self.CTRL,self.CTRL_TARGET)
+		self.Q_MATRIX = tensor(self.NC,self.BoxOP,self.CTRL,self.CTRL_TARGET)
 	
 	def show_OP(self):
 		print(self.OP)
@@ -99,23 +99,23 @@ class QuCircuit:
 
 	def show_ALL(self):
 		
-		L = len(self.MatrixOP)
-		K = len(self.MatrixOP[0])
-		print("matrix size : ",L,"x",K)
+		L = len(self.BoxOP)
+		K = len(self.BoxOP[0])
+		print("matrix size : ",K,"x",L)
 		for k in range(K):
 			A = []
 			for i in range(L):
-				A.append(self.MatrixOP[i][k])
+				A.append(self.BoxOP[i][k])
 			print(A)	
 	
-	def rt_Matrix_OP(self):
-		return self.MartixOP
+	def rt_QMatrix(self):
+		return self.Q_MATRIX
 
 	def show_MAT(self):
 		for i in range(self.NC):
 			#for k in range(self.NC):
-			print(self.MAT[i])
-		#print(self.MAT)
+			print(self.Q_MATRIX[i])
+		#print(self.Q_MATRIX)
 	
 	def show_state(self):
 		print(self.S)
