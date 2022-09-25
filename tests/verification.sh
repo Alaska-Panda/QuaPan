@@ -7,4 +7,10 @@
 cd test3
 python3 main.py 1 
 cd ..
+cd test4
+python3 main.py 1 
+cd ..
+cd test4
+python3 main.py 2 
+cd ..
 
