@@ -2,9 +2,11 @@ import sys
 sys.path.append('../')
 
 import numpy as np
-
+import matplotlib.pyplot as plt
 from core.circuit import QuCircuit
 from core.input import *
+
+FLAG_DEBUG = 0
 
 def oracle(QC,NQubits,PATTERN):
 	mask = (1<<NQubits) - 1
@@ -23,8 +25,9 @@ def main(args0,args1,args2):
 	print("NUMBER OF ITERATIONS :", NUM_ITR)  
 	#QC_INPUT  = input_zeros(NQ_Data,NQ_Index)
 	QC_INPUT  = input_h(NQ_Data,NQ_Index)
-	print(QC_INPUT)
-	print(input_zeros(NQ_Data,NQ_Index))
+	if FLAG_DEBUG==1:
+		print(QC_INPUT)
+		print(input_zeros(NQ_Data,NQ_Index))
 	
 	QC = QuCircuit(NQ_Data,NQ_Index)
 	
@@ -34,25 +37,6 @@ def main(args0,args1,args2):
 		FLAG_SIM = "ON"
 	else:
 		FLAG_SIM = "OFF"
-
-	if SEARCH_PATTERN == "0":
-		print("--Answer : 000--")
-	elif SEARCH_PATTERN == "1":
-		print("--Answer : 001--")
-	elif SEARCH_PATTERN == "2":
-		print("--Answer : 010--")
-	elif SEARCH_PATTERN == "3":
-		print("--Answer : 011--")
-	elif SEARCH_PATTERN == "4":
-		print("--Answer : 100--")
-	elif SEARCH_PATTERN == "5":
-		print("--Answer : 101--")
-	elif SEARCH_PATTERN == "6":
-		print("--Answer : 110--")
-	elif SEARCH_PATTERN == "7":
-		print("--Answer : 111--")
-	else:
-		print("--Answer : 000--")
 
 	for i in range(NUM_ITR):
 		# Oracle
@@ -76,20 +60,30 @@ def main(args0,args1,args2):
 		QC.add()
 		QC.h(range(0,NQ_ALL))
 		QC.add()
-	#QC.h(range(0,NQ_ALL))
-	#QC.add()
+		QC.show_ALL()
 
 	if FLAG_SIM == "ON":
 		QC.tdot()
-		QC.show_MAT()
+		if FLAG_DEBUG == 1:
+			QC.show_MAT()
 		print("--Simulation--")
 		GROVER_MAT = QC.rt_QMatrix()
 		QC_OUT = np.dot(GROVER_MAT,QC_INPUT)
 		#OUTPUT = (QC_OUT)
-		PROB_ANSWER = np.square(QC_OUT)
-		print("--Probability of Output as Answer--")
-		print(PROB_ANSWER)
+		PROB_ANSWER = np.square(QC_OUT).real*100.0
+		print("--Probabilities in Simulation--")
+		for i in range(0,1<<NQ_ALL):
+			print("#",i,":",format(PROB_ANSWER[i],"3.1f"),"[%]")
 		print("Estimated Answer :", np.argmax(PROB_ANSWER))
+		print('Probability of Answer [%] :',format(PROB_ANSWER[np.argmax(PROB_ANSWER)],"3.1f"))
+		x = [i for i in range(0,1<<NQ_ALL)]
+		y = PROB_ANSWER
+		plt.bar(x,y)
+		plt.xlabel("Searched Number")
+		plt.ylabel("Probability [%]")
+		plt.xlim(0,(1<<NQ_ALL)-1)
+		plt.ylim(0.0,100.0)
+		plt.show()
 	else:
 		print("Skip Simulation")
 	

@@ -1,16 +1,17 @@
-# About QuaPan
+## About QuaPan
 It is a quantum computing simulator for an educational use.
 Grover algorithm is implemented in a repository of "algorithms".
 
-# Download Git Repo with Tag.1
+## Download
+```
+```
 
-
-# Test
-Execute grover algotithm to find Number 7 data in database represented by 4 Qubits. 
+## Test
+Execute grover algotithm to find Kth data in database represented by N Qubits. 
+Here is an example with N = 4 and K = 7.
 ```
 cd algorithms
 python3 auto_grover.py 4 7 1 
 ```
-results
 
 
