@@ -2,8 +2,10 @@
 It is a quantum computing simulator for an educational use.
 Grover algorithm is implemented in a repository of "algorithms".
 
-## Download
+## Download 
+My repository at tag v1.0 is to simulate a grover algorithm.
 ```
+git clone git@github.com:Alaska-Panda/QuaPan.git - b v1.0 --depth 1
 ```
 
 ## Test
