@@ -11,7 +11,6 @@ def oracle(QC,NQubits,PATTERN):
 	A = PATTERN ^ mask
 	for i in range(NQubits):
 		if ((A >> (NQubits - i -1))  & 1):
-		#if ((A >> i)  & 1):
 			QC.x(i)
 
 
@@ -64,73 +63,6 @@ def main(args0,args1,args2):
 		QC.add()
 		oracle(QC,NQ_ALL,SEARCH_PATTERN)
 		QC.add()
-		"""
-		if SEARCH_PATTERN == 0:
-			QC.x(range(0,NQ_ALL))
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(range(0,NQ_ALL))
-			QC.add()
-		elif SEARCH_PATTERN == 1:
-			QC.x(range(0,2))
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(range(0,2))
-			QC.add()
-		elif SEARCH_PATTERN == 2:
-			QC.x(0)
-			QC.x(2)
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(0)
-			QC.x(2)
-			QC.add()
-		elif SEARCH_PATTERN == 3:
-			QC.x(0)
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(0)
-			QC.add()
-		elif SEARCH_PATTERN == 4:
-			QC.x(range(1,3))
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(range(1,3))
-			QC.add()
-		elif SEARCH_PATTERN == 5:
-			QC.x(1)
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(1)
-			QC.add()
-		elif SEARCH_PATTERN == 6:
-			QC.x(2)
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(2)
-			QC.add()
-		elif SEARCH_PATTERN == 7:
-			#QC.x(range(0,2))
-			#QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			#QC.add()
-			#QC.x(range(0,2))
-			QC.add()
-		else: # SEARCH_PATTERN == 0
-			QC.x(range(0,NQ_ALL))
-			QC.add()
-			QC.cz(range(0,NQ_ALL-1),NQ_ALL-1)
-			QC.add()
-			QC.x(range(0,NQ_ALL))
-			QC.add()
-		"""
 		QC.show_ALL()
 		# Diffuser
 		print("Oracle x",i+1,":Diffuser x",i+1)
@@ -169,12 +101,12 @@ if __name__ == '__main__':
 		if args[1].isdigit() & args[2].isdigit() & args[3].isdigit():
 			main(int(args[1]),int(args[2]),int(args[3]))
 		else: 
-			print("Set the first Argument as digit")
+			print("Set  Arguments as int")
 	else:
-		print("Set 1 Argument")
-		print("0 -> H Gate operation")
-		print("1 -> X Gate operation")
-		print("2 -> Y Gate operation")
-		print("3 -> Z Gate operation")
+		print("Set 3 Arguments")
+		print("#1 : Number of Qubits")
+		print("#2 : Search DB Pattern")
+		print("#3 : Simulation OFF, ONF = {0,1}")
+		print("example: python3 auto_grover_v1.py 4 5 1")
 	
 
