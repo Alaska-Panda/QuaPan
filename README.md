@@ -5,7 +5,7 @@ Grover algorithm is implemented in a repository of "algorithms".
 ## Download 
 Tag v1.0 is to simulate a grover algorithm.
 ```
-git clone git@github.com:Alaska-Panda/QuaPan.git - b v1.0 --depth 1
+git clone https://github.com/Alaska-Panda/QuaPan.git - b v1.0 --depth 1
 ```
 
 ## Test
