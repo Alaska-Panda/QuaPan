@@ -3,13 +3,13 @@ This repository is a quantum computing simulator for an educational use.
 Grover algorithm is implemented in a repository of "algorithms".
 
 ## Download 
-Tag v1.0 is to simulate a grover algorithm.
+Tag v1.0 is to simulate Grover algorithm.
 ```
 git clone https://github.com/Alaska-Panda/QuaPan.git - b v1.0 --depth 1
 ```
 
 ## Test
-Execute grover algotithm to search Kth data in database represented by N Qubits. \
+Execute Grover algotithm to search Kth data in database represented by N Qubits. \
 Here is an example execution with N = 4, K = 7 and simulation ON (=1).
 ```
 cd algorithms
