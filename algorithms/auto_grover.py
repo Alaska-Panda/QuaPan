@@ -101,6 +101,6 @@ if __name__ == '__main__':
 		print("#1 : Number of Qubits")
 		print("#2 : Search DB Pattern")
 		print("#3 : Simulation OFF, ONF = {0,1}")
-		print("example: python3 auto_grover_v1.py 4 5 1")
+		print("example: python3 auto_grover_v1.py 4 7 1")
 	
 

@@ -15,5 +15,5 @@ Here is an example with N = 4 and K = 7.
 cd algorithms
 python3 auto_grover.py 4 7 1 
 ```
-
+![Figure_1](https://user-images.githubusercontent.com/70809847/193384287-c1157675-eb17-49c0-808f-626d05a157cd.png)
 
