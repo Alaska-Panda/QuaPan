@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from core.circuit import QuCircuit
 from core.input import *
 
-FLAG_DEBUG = 0
+FLAG_DEBUG = 1 
 
 def oracle(QC,NQubits,PATTERN):
 	mask = (1<<NQubits) - 1
@@ -20,7 +20,8 @@ def main(args0,args1,args2):
 	NQ_Data	    = args0
 	NQ_Index	= 0 
 	NQ_ALL      = NQ_Data + NQ_Index
-	NUM_ITR     = int(np.pi /4.0 * (NQ_ALL/1.0))
+	N_DATA_SET  = 1<<NQ_ALL
+	NUM_ITR     = int(np.pi /4.0 * np.sqrt(N_DATA_SET/1.0))
 	#print(np.pi /4.0 * (NQ_ALL/1.0))
 	print("NUMBER OF ITERATIONS :", NUM_ITR)  
 	#QC_INPUT  = input_zeros(NQ_Data,NQ_Index)
@@ -72,16 +73,16 @@ def main(args0,args1,args2):
 		#OUTPUT = (QC_OUT)
 		PROB_ANSWER = np.square(QC_OUT).real*100.0
 		print("--Probabilities in Simulation--")
-		for i in range(0,1<<NQ_ALL):
+		for i in range(0,N_DATA_SET):
 			print("#",i,":",format(PROB_ANSWER[i],"3.1f"),"[%]")
 		print("Estimated Answer :", np.argmax(PROB_ANSWER))
 		print('Probability of Answer [%] :',format(PROB_ANSWER[np.argmax(PROB_ANSWER)],"3.1f"))
-		x = [i for i in range(0,1<<NQ_ALL)]
+		x = [i for i in range(0,N_DATA_SET)]
 		y = PROB_ANSWER
 		plt.bar(x,y)
 		plt.xlabel("Searched Number")
 		plt.ylabel("Probability [%]")
-		plt.xlim(0,(1<<NQ_ALL)-1)
+		plt.xlim(0,N_DATA_SET-1)
 		plt.ylim(0.0,100.0)
 		plt.show()
 	else:
