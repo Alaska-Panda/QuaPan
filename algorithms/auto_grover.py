@@ -21,7 +21,7 @@ def main(args0,args1,args2):
 	NQ_Index	= 0 
 	NQ_ALL      = NQ_Data + NQ_Index
 	N_DATA_SET  = 1<<NQ_ALL
-	NUM_ITR     = int(np.pi /4.0 * np.sqrt(N_DATA_SET/1.0))
+	NUM_ITR     = round(np.pi /4.0 * np.sqrt(N_DATA_SET/1.0))
 	#print(np.pi /4.0 * (NQ_ALL/1.0))
 	print("NUMBER OF ITERATIONS :", NUM_ITR)  
 	#QC_INPUT  = input_zeros(NQ_Data,NQ_Index)
