@@ -10,7 +10,7 @@ git clone https://github.com/Alaska-Panda/QuaPan.git - b v1.0 --depth 1
 
 ## Test
 Execute Grover algotithm to search Kth data in database represented by N Qubits. \
-Here is an example execution with N = 4, K = 7 and simulation ON (=1).
+Here is an example with parameters of N = 4 and K = 7.
 ```
 cd algorithms
 python3 auto_grover.py 4 7 1 
