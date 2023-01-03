@@ -1,9 +1,10 @@
 ## About QuaPan
 Quapan is a quantum computing simulator for educational use.
-Grover algorithm is implemented in a directory of "algorithms".
+
+## Available Quantum Algorithms
+- Grover Algorithm
 
 ## Download 
-Tag v1.0 is to simulate Grover algorithm.
 ```
 git clone https://github.com/Alaska-Panda/QuaPan.git - b v1.0 --depth 1
 ```
