@@ -1,6 +1,6 @@
 ## About QuaPan
-This repository is a quantum computing simulator for an educational use.
-Grover algorithm is implemented in a repository of "algorithms".
+Quapan is a quantum computing simulator for educational use.
+Grover algorithm is implemented in a directory of "algorithms".
 
 ## Download 
 Tag v1.0 is to simulate Grover algorithm.
